@@ -45,16 +45,16 @@
 // ################ END MANUAL SETTINGS ##########################
 
 #undef FAN_PIN
-#define FAN_PIN 9
+#define FAN_PIN 11
 #undef FAN_BOARD_PIN
 #define FAN_BOARD_PIN -1
 #define BOARD_FAN_SPEED 255
 #define BOARD_FAN_MIN_SPEED 0
 #define FAN_THERMO_PIN -1
-#define FAN_THERMO_MIN_PWM 128
+#define FAN_THERMO_MIN_PWM 255
 #define FAN_THERMO_MAX_PWM 255
-#define FAN_THERMO_MIN_TEMP 45
-#define FAN_THERMO_MAX_TEMP 60
+#define FAN_THERMO_MIN_TEMP 40
+#define FAN_THERMO_MAX_TEMP 50
 #define FAN_THERMO_THERMISTOR_PIN -1
 #define FAN_THERMO_THERMISTOR_TYPE 1
 #undef Z_MIN_PIN
@@ -118,7 +118,7 @@
 #define EXT0_WAIT_RETRACT_UNITS 0
 #define EXT0_SELECT_COMMANDS ""
 #define EXT0_DESELECT_COMMANDS ""
-#define EXT0_EXTRUDER_COOLER_PIN 11
+#define EXT0_EXTRUDER_COOLER_PIN 9
 #define EXT0_EXTRUDER_COOLER_SPEED 255
 #define EXT0_DECOUPLE_TEST_PERIOD 12000
 #define EXT0_JAM_PIN -1
@@ -303,7 +303,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define ENDSTOP_Z_BACK_MOVE 10
 #define ENDSTOP_X_RETEST_REDUCTION_FACTOR 2
 #define ENDSTOP_Y_RETEST_REDUCTION_FACTOR 2
-#define ENDSTOP_Z_RETEST_REDUCTION_FACTOR 0
+#define ENDSTOP_Z_RETEST_REDUCTION_FACTOR 2
 #define ENDSTOP_X_BACK_ON_HOME 1
 #define ENDSTOP_Y_BACK_ON_HOME 1
 #define ENDSTOP_Z_BACK_ON_HOME 0
@@ -362,7 +362,7 @@ It also can add a delay to wait for spindle to run on full speed.
 // ##########################################################################################
 
 #define FEATURE_BABYSTEPPING 1
-#define BABYSTEP_MULTIPLICATOR 80
+#define BABYSTEP_MULTIPLICATOR 50
 
 #define DELTA_SEGMENTS_PER_SECOND_PRINT 180 // Move accurate setting for print moves
 #define DELTA_SEGMENTS_PER_SECOND_MOVE 70 // Less accurate setting for other moves
@@ -473,7 +473,7 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define SERVO2_NEUTRAL_POS  -1
 #define SERVO3_NEUTRAL_POS  -1
 #define UI_SERVO_CONTROL 0
-#define FAN_KICKSTART_TIME  200
+#define FAN_KICKSTART_TIME  300
 #define MAX_FAN_PWM 255
 
         #define FEATURE_WATCHDOG 1
@@ -557,6 +557,7 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define LANGUAGE_FI_ACTIVE 0
 #define LANGUAGE_SE_ACTIVE 0
 #define LANGUAGE_FR_ACTIVE 0
+#define LANGUAGE_RU_ACTIVE 0
 #define LANGUAGE_CZ_ACTIVE 1
 #define LANGUAGE_PL_ACTIVE 0
 #define LANGUAGE_TR_ACTIVE 0
@@ -649,7 +650,7 @@ Values must be in range 1..255
             "waitRetractUnits": 0,
             "waitRetract": 0,
             "stepsPerMM": 514,
-            "coolerPin": 11,
+            "coolerPin": 9,
             "coolerSpeed": 255,
             "selectCommands": "",
             "deselectCommands": "",
@@ -1077,14 +1078,14 @@ Values must be in range 1..255
     "forceChecksum": "0",
     "sdExtendedDir": "1",
     "featureFanControl": "1",
-    "fanPin": 9,
+    "fanPin": 11,
     "featureFan2Control": "0",
     "fan2Pin": "ORIG_FAN2_PIN",
     "fanThermoPin": -1,
-    "fanThermoMinPWM": 128,
+    "fanThermoMinPWM": 255,
     "fanThermoMaxPWM": 255,
-    "fanThermoMinTemp": 45,
-    "fanThermoMaxTemp": 60,
+    "fanThermoMinTemp": 40,
+    "fanThermoMaxTemp": 50,
     "fanThermoThermistorPin": -1,
     "fanThermoThermistorType": 1,
     "scalePidToMax": 0,
@@ -1136,7 +1137,7 @@ Values must be in range 1..255
     "fanBoardPin": -1,
     "heaterPWMSpeed": 0,
     "featureBabystepping": "1",
-    "babystepMultiplicator": 80,
+    "babystepMultiplicator": 50,
     "pdmForHeater": "0",
     "pdmForCooler": "0",
     "psOn": -1,
@@ -1179,7 +1180,7 @@ Values must be in range 1..255
     "filamentChangeRehome": 1,
     "filamentChangeShortRetract": 5,
     "filamentChangeLongRetract": 50,
-    "fanKickstart": 200,
+    "fanKickstart": 300,
     "servo0StartPos": -1,
     "servo1StartPos": -1,
     "servo2StartPos": -1,
