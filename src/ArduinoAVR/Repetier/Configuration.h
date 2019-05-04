@@ -57,8 +57,6 @@
 #define FAN_THERMO_MAX_TEMP 50
 #define FAN_THERMO_THERMISTOR_PIN -1
 #define FAN_THERMO_THERMISTOR_TYPE 1
-#undef Z_MIN_PIN
-#define Z_MIN_PIN 57
 
 //#define EXTERNALSERIAL  use Arduino serial library instead of build in. Requires more ram, has only 63 byte input buffer.
 // Uncomment the following line if you are using Arduino compatible firmware made for Arduino version earlier then 1.0
@@ -251,8 +249,8 @@ It also can add a delay to wait for spindle to run on full speed.
 #define ENDSTOP_PULLUP_Y_MIN true
 #define ENDSTOP_Y_MIN_INVERTING false
 #define MIN_HARDWARE_ENDSTOP_Y true
-#define ENDSTOP_PULLUP_Z_MIN false
-#define ENDSTOP_Z_MIN_INVERTING true
+#define ENDSTOP_PULLUP_Z_MIN true
+#define ENDSTOP_Z_MIN_INVERTING false
 #define MIN_HARDWARE_ENDSTOP_Z true
 #define ENDSTOP_PULLUP_Z2_MINMAX true
 #define ENDSTOP_Z2_MINMAX_INVERTING false
@@ -556,8 +554,8 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define LANGUAGE_ES_ACTIVE 0
 #define LANGUAGE_FI_ACTIVE 0
 #define LANGUAGE_SE_ACTIVE 0
-#define LANGUAGE_FR_ACTIVE 0
 #define LANGUAGE_RU_ACTIVE 0
+#define LANGUAGE_FR_ACTIVE 0
 #define LANGUAGE_CZ_ACTIVE 1
 #define LANGUAGE_PL_ACTIVE 0
 #define LANGUAGE_TR_ACTIVE 0
@@ -685,7 +683,7 @@ Values must be in range 1..255
     "uiController": 0,
     "xMinEndstop": 2,
     "yMinEndstop": 2,
-    "zMinEndstop": 3,
+    "zMinEndstop": 2,
     "xMaxEndstop": 0,
     "yMaxEndstop": 0,
     "zMaxEndstop": 0,
@@ -1125,7 +1123,7 @@ Values must be in range 1..255
     "zEndstopRetestFactor": 0,
     "xMinPin": "ORIG_X_MIN_PIN",
     "yMinPin": "ORIG_Y_MIN_PIN",
-    "zMinPin": 57,
+    "zMinPin": "ORIG_Z_MIN_PIN",
     "xMaxPin": "ORIG_X_MAX_PIN",
     "yMaxPin": "ORIG_Y_MAX_PIN",
     "zMaxPin": "ORIG_Z_MAX_PIN",
