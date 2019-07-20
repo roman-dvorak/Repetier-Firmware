@@ -301,7 +301,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define ENDSTOP_Z_BACK_MOVE 10
 #define ENDSTOP_X_RETEST_REDUCTION_FACTOR 2
 #define ENDSTOP_Y_RETEST_REDUCTION_FACTOR 2
-#define ENDSTOP_Z_RETEST_REDUCTION_FACTOR 2
+#define ENDSTOP_Z_RETEST_REDUCTION_FACTOR 0
 #define ENDSTOP_X_BACK_ON_HOME 1
 #define ENDSTOP_Y_BACK_ON_HOME 1
 #define ENDSTOP_Z_BACK_ON_HOME 0
@@ -378,15 +378,15 @@ It also can add a delay to wait for spindle to run on full speed.
 #define HOMING_FEEDRATE_X 50
 #define HOMING_FEEDRATE_Y 50
 #define HOMING_FEEDRATE_Z 15
-#define HOMING_ORDER HOME_ORDER_XYZ
+#define HOMING_ORDER HOME_ORDER_XYTZ
 #define ZHOME_PRE_RAISE 2
 #define ZHOME_PRE_RAISE_DISTANCE 10
 #define RAISE_Z_ON_TOOLCHANGE 10
 #define ZHOME_MIN_TEMPERATURE 0
-#define ZHOME_HEAT_ALL 1
-#define ZHOME_HEAT_HEIGHT 20
-#define ZHOME_X_POS 999999
-#define ZHOME_Y_POS 999999
+#define ZHOME_HEAT_ALL 0
+#define ZHOME_HEAT_HEIGHT 10
+#define ZHOME_X_POS 30
+#define ZHOME_Y_POS 30
 #define ENABLE_BACKLASH_COMPENSATION 0
 #define X_BACKLASH 0
 #define Y_BACKLASH 0
@@ -461,8 +461,8 @@ M340 P<servoId> S<pulseInUS>   / ServoID = 0..3  pulseInUs = 500..2500
 Servos are controlled by a pulse width normally between 500 and 2500 with 1500ms in center position. 0 turns servo off.
 WARNING: Servos can draw a considerable amount of current. Make sure your system can handle this or you may risk your hardware!
 */
-#define FEATURE_SERVO 0
-#define SERVO0_PIN 11
+#define FEATURE_SERVO 1
+#define SERVO0_PIN 5
 #define SERVO1_PIN -1
 #define SERVO2_PIN -1
 #define SERVO3_PIN -1
@@ -470,7 +470,7 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define SERVO1_NEUTRAL_POS  -1
 #define SERVO2_NEUTRAL_POS  -1
 #define SERVO3_NEUTRAL_POS  -1
-#define UI_SERVO_CONTROL 0
+#define UI_SERVO_CONTROL 1
 #define FAN_KICKSTART_TIME  300
 #define MAX_FAN_PWM 255
 
@@ -481,39 +481,39 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define Z_PROBE_Z_OFFSET 0
 #define Z_PROBE_Z_OFFSET_MODE 0
 #define UI_BED_COATING 1
-#define FEATURE_Z_PROBE 0
-#define EXTRUDER_IS_Z_PROBE 1
+#define FEATURE_Z_PROBE 1
+#define EXTRUDER_IS_Z_PROBE 0
 #define Z_PROBE_DISABLE_HEATERS 0
 #define Z_PROBE_BED_DISTANCE 10
-#define Z_PROBE_PIN 57
+#define Z_PROBE_PIN ORIG_Z_MIN_PIN
 #define Z_PROBE_PULLUP 0
 #define Z_PROBE_ON_HIGH 1
-#define Z_PROBE_X_OFFSET 0
-#define Z_PROBE_Y_OFFSET 0
+#define Z_PROBE_X_OFFSET 22
+#define Z_PROBE_Y_OFFSET -12
 #define Z_PROBE_WAIT_BEFORE_TEST 0
-#define Z_PROBE_SPEED 13
+#define Z_PROBE_SPEED 5
 #define Z_PROBE_XY_SPEED 100
-#define Z_PROBE_SWITCHING_DISTANCE 15
-#define Z_PROBE_REPETITIONS 3
-#define Z_PROBE_USE_MEDIAN 1
-#define Z_PROBE_HEIGHT -0.3
+#define Z_PROBE_SWITCHING_DISTANCE 10
+#define Z_PROBE_REPETITIONS 2
+#define Z_PROBE_USE_MEDIAN 0
+#define Z_PROBE_HEIGHT 3
 #define Z_PROBE_DELAY 0
-#define Z_PROBE_START_SCRIPT ""
-#define Z_PROBE_FINISHED_SCRIPT ""
+#define Z_PROBE_START_SCRIPT "M340 P0 S650"
+#define Z_PROBE_FINISHED_SCRIPT "M340 P0 S1475"
 #define Z_PROBE_RUN_AFTER_EVERY_PROBE ""
-#define Z_PROBE_REQUIRES_HEATING 1
+#define Z_PROBE_REQUIRES_HEATING 0
 #define Z_PROBE_MIN_TEMPERATURE 150
-#define FEATURE_AUTOLEVEL 0
+#define FEATURE_AUTOLEVEL 1
 #define FEATURE_SOFTWARE_LEVELING 0
 #define Z_PROBE_X1 20
 #define Z_PROBE_Y1 20
 #define Z_PROBE_X2 160
 #define Z_PROBE_Y2 20
-#define Z_PROBE_X3 100
+#define Z_PROBE_X3 20
 #define Z_PROBE_Y3 160
-#define BED_LEVELING_METHOD 2
+#define BED_LEVELING_METHOD 1
 #define BED_CORRECTION_METHOD 0
-#define BED_LEVELING_GRID_SIZE 5
+#define BED_LEVELING_GRID_SIZE 4
 #define BED_LEVELING_REPETITIONS 5
 #define BED_MOTOR_1_X 0
 #define BED_MOTOR_1_Y 0
@@ -554,7 +554,6 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define LANGUAGE_ES_ACTIVE 0
 #define LANGUAGE_FI_ACTIVE 0
 #define LANGUAGE_SE_ACTIVE 0
-#define LANGUAGE_RU_ACTIVE 0
 #define LANGUAGE_FR_ACTIVE 0
 #define LANGUAGE_CZ_ACTIVE 1
 #define LANGUAGE_PL_ACTIVE 0
@@ -819,16 +818,16 @@ Values must be in range 1..255
         "enable": "ORIG_E3_ENABLE_PIN"
     },
     "dittoPrinting": "0",
-    "featureServos": "0",
-    "servo0Pin": 11,
+    "featureServos": "1",
+    "servo0Pin": 5,
     "servo1Pin": -1,
     "servo2Pin": -1,
     "servo3Pin": -1,
     "featureWatchdog": "1",
     "hasHeatedBed": "1",
-    "enableZProbing": "0",
+    "enableZProbing": "1",
     "extrudeMaxLength": 160,
-    "homeOrder": "HOME_ORDER_XYZ",
+    "homeOrder": "HOME_ORDER_XYTZ",
     "featureController": 11,
     "uiPrinterName": "ZVPPp",
     "uiPrinterCompany": "MLAB 3D printer",
@@ -1087,29 +1086,29 @@ Values must be in range 1..255
     "fanThermoThermistorPin": -1,
     "fanThermoThermistorType": 1,
     "scalePidToMax": 0,
-    "zProbePin": 57,
+    "zProbePin": "ORIG_Z_MIN_PIN",
     "zProbeBedDistance": 10,
     "zProbeDisableHeaters": "0",
     "zProbePullup": "0",
     "zProbeOnHigh": "1",
-    "zProbeXOffset": 0,
-    "zProbeYOffset": 0,
+    "zProbeXOffset": 22,
+    "zProbeYOffset": -12,
     "zProbeWaitBeforeTest": "0",
-    "zProbeSpeed": 13,
+    "zProbeSpeed": 5,
     "zProbeXYSpeed": 100,
-    "zProbeHeight": -0.3,
-    "zProbeStartScript": "",
-    "zProbeFinishedScript": "",
-    "featureAutolevel": "0",
+    "zProbeHeight": 3,
+    "zProbeStartScript": "M340 P0 S650",
+    "zProbeFinishedScript": "M340 P0 S1475",
+    "featureAutolevel": "1",
     "zProbeX1": 20,
     "zProbeY1": 20,
     "zProbeX2": 160,
     "zProbeY2": 20,
-    "zProbeX3": 100,
+    "zProbeX3": 20,
     "zProbeY3": 160,
-    "zProbeSwitchingDistance": 15,
-    "zProbeRepetitions": 3,
-    "zProbeMedian": "1",
+    "zProbeSwitchingDistance": 10,
+    "zProbeRepetitions": 2,
+    "zProbeMedian": "0",
     "zProbeEveryPoint": "",
     "sdSupport": "1",
     "sdCardDetectPin": "ORIG_SDCARDDETECT",
@@ -1184,7 +1183,7 @@ Values must be in range 1..255
     "servo2StartPos": -1,
     "servo3StartPos": -1,
     "uiDynamicEncoderSpeed": "1",
-    "uiServoControl": 0,
+    "uiServoControl": 1,
     "killIfSensorDefect": "0",
     "jamSteps": 220,
     "jamSlowdownSteps": 320,
@@ -1295,10 +1294,10 @@ Values must be in range 1..255
     ],
     "manualConfig": "",
     "zHomeMinTemperature": 0,
-    "zHomeXPos": 999999,
-    "zHomeYPos": 999999,
-    "zHomeHeatHeight": 20,
-    "zHomeHeatAll": "1",
+    "zHomeXPos": 30,
+    "zHomeYPos": 30,
+    "zHomeHeatHeight": 10,
+    "zHomeHeatAll": "0",
     "zProbeZOffsetMode": 0,
     "zProbeZOffset": 0,
     "zProbeDelay": 0,
@@ -1340,9 +1339,9 @@ Values must be in range 1..255
     "cncSafeZ": 150,
     "startupGCode": "",
     "jsonOutput": "0",
-    "bedLevelingMethod": 2,
+    "bedLevelingMethod": 1,
     "bedCorrectionMethod": 0,
-    "bedLevelingGridSize": 5,
+    "bedLevelingGridSize": 4,
     "bedLevelingRepetitions": 5,
     "bedMotor1X": 0,
     "bedMotor1Y": 0,
@@ -1350,7 +1349,7 @@ Values must be in range 1..255
     "bedMotor2Y": 0,
     "bedMotor3X": 100,
     "bedMotor3Y": 200,
-    "zProbeRequiresHeating": "1",
+    "zProbeRequiresHeating": "0",
     "zProbeMinTemperature": 150,
     "adcKeypadPin": -1,
     "sharedExtruderHeater": "0",
@@ -1365,7 +1364,7 @@ Values must be in range 1..255
     "multiZEndstopHoming": "0",
     "z2MinMaxPin": -1,
     "z2MinMaxEndstop": 0,
-    "extruderIsZProbe": "1",
+    "extruderIsZProbe": "0",
     "boardFanMinSpeed": 0,
     "doorPin": -1,
     "doorEndstop": 1,
